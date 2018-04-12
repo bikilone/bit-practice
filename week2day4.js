@@ -150,6 +150,186 @@ function concatenate(string, num) {
     return newString;
 }
 
+/*
+12. Write a program that multiplies every positive element of a given array by 2.
+Input array: [-3, 11, 5, 3.4, -8]
+Output array: [-3, 22, 10, 6.8, -8]
+*/
+
+function double(array) {
+    var res= [];
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            res[i] = 2*array[i];
+        } else {
+            res[i] = array[i];
+        }
+    }
+    return res;
+}
+
+/*
+13.Write a program that finds the minimum of a given array and prints out its value and index. 
+Input array: [4, 2, 2, -1, 6]
+Output: -1, 3
+*/
+
+function min(array) {
+    var min = array[0];
+    var index = 0;
+    for ( var i = 1; i < array.length; i++) {
+        if ( array[i] < min) {
+            min = array[i];
+            index = i;
+        }
+    }
+    return [min, index];
+}
+
+/*
+14.Write a program that finds the second largest number and prints out its value. 
+Input array: [4, 2, 2, -1, 6]
+Output: 2
+*/
+
+function secondMax(array) {
+    var max = array[0];
+    var secondMax;
+    var index = 0;
+    for (var i = 0; i < array.length; i++) {
+        if ( array[i] > max) {
+            secondMax = max;
+            max = array[i];
+             index = i;
+        } else if ( array[i] > secondMax) {
+            secondMax = array[i];
+        }
+    }
+    if ( typeof secondMax === "undefined") {
+        secondMax = -Infinity;
+        for(var j = 0; j < array.length; j++) {
+            if ( j === index) {
+                continue;
+            } else if (array[j] > secondMax) {
+                secondMax = array[j];
+            }
+        }
+    }
+    return secondMax;
+}
+
+/*
+15. Write a program that checks if a given array is symmetric. An array is symmetric if it can be read the same way both from the left and the right hand side.   
+Input array: [2, 4, -2, 7, -2, 4, 2]
+Output: The array is symmetric.
+*/
+
+function isSymetric(array) {
+    for(var i = 0; i < array.length/2; i++) {
+        if (array[i] === array[array.length-i-1]) {
+            
+        } else return false
+    }
+    return true
+}
+
+
+/*
+16. Write a program that intertwines two arrays. You can assume the arrays are of the same length. 
+Input arrays: [4, 5, 6, 2], [3, 8, 11, 9]
+Output array: [4, 3, 5, 8, 6, 11, 2, 9]
+*/
+
+function intertwines(array1, array2) {
+    var i = 0;
+    var j = 0;
+    var newArray = [];
+    while(i < array1.length) {
+        newArray[j] = array1[i];
+        newArray[j+1] = array2[i];
+        j += 2;
+        i++;
+    }
+    return newArray;
+}
+
+
+/*
+17.Write a program that concatenates two arrays. 
+Input arrays: [4, 5, 6, 2], [3, 8, 11, 9]
+Output array: [4, 5, 6, 2, 3, 8, 11, 9]
+*/
+
+function concatenateArray(array1, array2) {
+    var length1 = array1.length;
+    var length2 = array2.length;
+    var i = 0;
+    var j = 0;
+    var newArray = [];
+        while (i < length1 + length2) {
+        if (i < length1) {
+            newArray[i] = array1[i];
+            i++;
+        } else {
+            newArray[i] = array2[j];
+            j++;
+            i++;
+        }
+    }
+    return newArray;
+}
+
+/*
+18. Write a program that deletes a given element e from the array a. 
+Input: e = 2, a = [4, 6, 2, 8, 2, 2]
+Output array: [4, 6, 8]
+*/
+
+function deleteElement(array, element) {
+    var newArray = [];
+    var j = 0;
+    for(var i = 0; i < array.length; i++) {
+        if (array[i] === element) {
+            continue;
+        } else {
+            newArray[j] = array[i];
+            j++;
+        }
+    } 
+    return newArray;
+}
+
+/*
+19.Write a program that inserts a given element e on the given position p in the array a. If the value of the position is greater than the array length, print the error message. 
+Input: e = 78, p = 3, a = [2, -2, 33, 12, 5, 8]
+Output: [2, -2, 33, 78, 12, 5, 8]
+*/
+
+function insert(array, element, position) {
+    var newArray = [];
+    var i = 0;
+    var j = 0;
+    if (position > array.length ) {
+        return "error"
+    }
+    while ( i <= array.length) {
+        if ( i === position) {
+            newArray[i] = element;
+            i++;
+        } else {
+            newArray[i] = array[j];
+            i++;
+            j++;
+        }
+    }
+    return newArray;
+}
+
+
+
+
+
+
 
 
 
