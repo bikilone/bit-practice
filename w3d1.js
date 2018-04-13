@@ -255,7 +255,7 @@ function print(array) {
 
 
 
-console.log(print(["Hello", "World", "in", "a", "frame", "bla", "tralalal", "jkdsfkjhasdfkjdsfkjfdskjhdsfkjh"]));
+
 
 
 
